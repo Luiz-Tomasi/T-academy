@@ -124,7 +124,7 @@ insert into lojas values ("53", "NovaLoja");
 call alteraLocacao("B3", "53", @saida);
 select * from locacoes;
 
-#3: Pelo menos três para alterar
+#3: Pelo menos três para alterar | Case
 DELIMITER $$ 
 create procedure alteraCategoria(In idCategoria int, IN nomeCategoria varchar(45), OUT msg varchar(45))
 BEGIN
@@ -132,7 +132,11 @@ BEGIN
 		update categorias as ca set ca.nome = nomeCategoria where ca.idCategoria = idCategoria;
         set msg = "Categoria Alterada com sucesso";
 	else
-		set msg = "Nome muito pequeno";
+		case 
+        when length(nomeCategoria) = 1 then set msg = "Nome muito pequeno, somente 1 caracter";
+        when length(nomeCategoria) = 2 then set msg = "Nome muito pequeno, somente 2 caracter";
+        else set msg = "Nome muito pequeno";
+        end case;
 	end if;
     
     select msg;
