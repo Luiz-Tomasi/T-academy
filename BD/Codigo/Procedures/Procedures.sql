@@ -146,7 +146,7 @@ call alteraCategoria("5", "Social", @saida);
 DELIMITER $$ 
 create procedure deletaCategoria(In idCategoria int, OUT msg varchar(45))
 BEGIN
-		delete from categorias where idCategoria = idCategoria;
+		delete from categorias as ca where ca.idCategoria = idCategoria;
         set msg = "Categoria deletada com sucesso";
     
     select msg;
@@ -156,8 +156,33 @@ DELIMITER ;
 call deletaCategoria("5", @saida);
 select * from categorias;
 
+#2: Pelo menos três para deletar
+DELIMITER $$ 
+create procedure deletaMarca(In idMarca int, OUT msg varchar(45))
+BEGIN
+		delete from marcas as m where m.idMarca = idMarca;
+        set msg = "Marca deletada com sucesso";
+    
+    select msg;
+END $$
+DELIMITER ;
 
-#1: Pelo menos três para deletar
+#3: Pelo menos três para deletar
+DELIMITER $$ 
+create procedure deletaCliente(In idCLiente int, OUT msg varchar(45))
+BEGIN
+		delete from clientes as cl where cl.idCliente = idCliente;
+        set msg = "Cliente deletado com sucesso";
+    
+    select msg;
+END $$
+DELIMITER ;
+
+call deletaCliente("5", @saida);
+select * from clientes;
+
+
+#Adicionar nova Marca
 DELIMITER $$ 
 create procedure createMarca(In nomeMarca varchar(45), OUT msg varchar(45))
 BEGIN

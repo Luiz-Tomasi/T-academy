@@ -9,3 +9,9 @@ select cl.nome as nomeCliente from clientes as cl where cl.nome like "%J%";
 
 #Quantos produtos por marca | HAVING
 select count(p.nome), m.nome as nomeMarca from produtos as p inner join marcas as m on (p.idMarca = m.idMarca) group by m.nome having count(p.nome) > 2;
+
+#Horario da emisao do registro | Now
+select car.*, now() as horarioRegistroEmitido from carrinhos as car;
+
+#Horario atual | DataFormat
+SELECT FORMAT (now(), 'dd/MM/yyyy ');

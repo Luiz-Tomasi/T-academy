@@ -12,7 +12,7 @@ idLocacao int primary key auto_increment,
 endereco varchar(45),
 disponivel tinyint default 1,
 idLoja int unique,
-foreign key (idLoja) references lojas(idLoja)
+foreign key (idLoja) references lojas(idLoja) ON DELETE CASCADE
 ); 
 
 create table marcas(
@@ -32,9 +32,9 @@ estoque int,
 idMarca int,
 idLoja int,
 idCategoria int,
-foreign key(idCategoria) references categorias(idCategoria),
-foreign key(idMarca) references marcas(idMarca),
-foreign key(idLoja) references lojas(idLoja)
+foreign key(idCategoria) references categorias(idCategoria) ON DELETE CASCADE,
+foreign key(idMarca) references marcas(idMarca) ON DELETE CASCADE,
+foreign key(idLoja) references lojas(idLoja) ON DELETE CASCADE
 );
 
 create table clientes (
@@ -48,8 +48,8 @@ idCartao int primary key auto_increment,
 idCliente int,
 idLoja int,
 dinheiro float,
-foreign key(idCliente) references clientes(idCliente),
-foreign key(idLoja) references lojas(idLoja)
+foreign key(idCliente) references clientes(idCliente) ON DELETE CASCADE,
+foreign key(idLoja) references lojas(idLoja) ON DELETE CASCADE
 );
 
 create table carrinhos (
@@ -58,9 +58,9 @@ Estoque int,
 idProduto int,
 idLoja int,
 idCliente int,
-foreign key(idProduto) references produtos(idProduto),
-foreign key(idLoja) references lojas(idLoja),
-foreign key(idCliente) references clientes(idCliente)
+foreign key(idProduto) references produtos(idProduto) ON DELETE CASCADE,
+foreign key(idLoja) references lojas(idLoja) ON DELETE CASCADE,
+foreign key(idCliente) references clientes(idCliente) ON DELETE CASCADE
 );
 
 insert into clientes(nome, CPF) values ("João", "123.456.123-25"), ("Maria", "987.654.321-11"), ("Luiz", "123.321.231-00"), ("Roberto", "765.432.123-00"), ("Roberta", "654.321.213-99"), ("Joana", "000.984.953-77"), ("Jorge", "231.444.332-55"), ("Felipe", "111.111.111-11"), ("Theo", "222.222.222-22"), ("Bernardo", "333.333.333-33");
