@@ -36,6 +36,44 @@ var produtos = [
 produtos = JSON.stringify(produtos)
 localStorage.setItem("produtos", produtos)
 
+
+
+function mostrarTabelaPorTermo(){
+    
+    let termo = document.getElementById("busca").value
+
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let produtosPorTermo = []
+
+    for(let i = 0; i < produtos.length; i++){
+        if(produtos[i].nome.indexOf(termo) != -1){
+            produtosPorTermo.push(produtos[i])
+            console.log(produtos[i].nome)
+        }
+    }
+
+
+    var txt = ''
+    for (let i = 0; i < produtosPorTermo.length; i++) {
+            txt += `<tr>
+            <td>${produtosPorTermo[i].id}</td>
+            <td>${produtosPorTermo[i].nome}</td>
+            <td>${produtosPorTermo[i].preco}</td>
+            <td>${produtosPorTermo[i].estoque}</td>
+            <td>${produtosPorTermo[i].segmento}</td>
+            <td>${produtosPorTermo[i].un}</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>`
+    }
+    document.getElementsByTagName('tbody')[0].innerHTML = txt;
+
+}
+
+
 function mostrarTabela() {
     if (localStorage.getItem('produtos') != null) {
         produtos = JSON.parse(localStorage.getItem('produtos'))
@@ -46,10 +84,8 @@ function mostrarTabela() {
     var txt = ''
     for (let i = 0; i < 12; i++) {
         let idAleatorio = getRandomNumber()
-        console.log(getRandomNumber())
         if(idEmUso(idAleatorio, idUsados) == false){
             idUsados.push(idAleatorio)
-            console.log(idAleatorio)
 
             txt += `<tr>
                 <td>${produtos[idAleatorio].id}</td>
