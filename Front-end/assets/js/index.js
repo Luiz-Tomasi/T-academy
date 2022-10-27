@@ -104,11 +104,9 @@ function manipularQuantidadeCarrinho(produto) {
     let produtoEncontrado = 0
     let antigoEstoque = 0
     let antigaQuantidade = 0
-    console.log(produto.id)
     for (let i = 0; i < carrinho.length; i++) {
         if (produto.id == carrinho[i].idProduto) {
             produtoEncontrado = 1
-            console.log(produto.id)
 
             if (produtoEncontrado == 1) {
 
