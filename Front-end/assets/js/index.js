@@ -1,5 +1,4 @@
 if (localStorage.length > 0){} else{
-    console.log("aqui")
 
     var carrinho = [{ id: 1, idProduto: 1, quantidade: 1}]
     carrinho = JSON.stringify(carrinho)
@@ -82,7 +81,7 @@ function mostrarCarrinho(){
             <td onclick="delProdutoFromCarrinho(this)" id="${carrinho[i].idProduto}">Deletar</td>
         </tr>`
 
-        total += parseFloat(produtos[carrinho[i].idProduto].preco) * parseInt(carrinho[i].quantidade)
+        total += parseFloat(produtos[carrinho[i].idProduto].preco) * parseFloat(carrinho[i].quantidade)
     }
 
 
@@ -103,12 +102,14 @@ function manipularQuantidadeCarrinho(produto){
     }
 
     let produtoEncontrado = 0
-    var antigoEstoque = 0
-    var antigaQuantidade = 0
+    let antigoEstoque = 0
+    let antigaQuantidade = 0
+    console.log(produto.id)
     for(let i = 0; i < carrinho.length; i++){
         if(produto.id == carrinho[i].idProduto){
             produtoEncontrado = 1
-        } 
+            console.log(produto.id)
+        
         if(produtoEncontrado == 1){
 
             antigaQuantidade = carrinho[i].quantidade;
@@ -145,6 +146,7 @@ function manipularQuantidadeCarrinho(produto){
                 
                 }).showToast();
         }
+    } 
     }
 
 
@@ -257,8 +259,6 @@ function atualizarTabelaAleatoria(){
 
     var txt = ''
     for(let i = 0; i < 12; i++) {
-        console.log(idUsados)
-        console.log(idUsados[1])
         txt += `<tr onclick="addCarrinho(this)" id="${produtos[idUsados[i]].id}">
                 <td>${produtos[idUsados[i]].id}</td>
                 <td>${produtos[idUsados[i]].nome}</td>
