@@ -422,7 +422,7 @@ function mostrarPorVestuario() {
 
 function idEmUso(idAleatorio, idUsados) {
     for (let i = 0; i < 12; i++) {
-        if (idAleatorio == idUsados) {
+        if (idAleatorio == idUsados[i]) {
             return true
         }
     }
