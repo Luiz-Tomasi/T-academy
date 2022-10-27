@@ -158,3 +158,10 @@
 .carrinho .listProdutos td {
     color: white;
 }
+
+.carrinho .listProdutos input{
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #30343F;
+}

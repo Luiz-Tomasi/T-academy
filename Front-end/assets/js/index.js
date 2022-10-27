@@ -54,7 +54,7 @@ function mostrarCarrinho(){
             txtCarrinho  += `<tr id="${carrinho[i].idProduto}">
             <td onclick="addCarrinho(this)" id="${carrinho[i].idProduto}"> ${produtos[carrinho[i].idProduto].nome}</td>
             <td onclick="addCarrinho(this)" id="${carrinho[i].idProduto}">${produtos[carrinho[i].idProduto].preco}</td>
-            <td onclick="addCarrinho(this)" id="${carrinho[i].idProduto}">${carrinho[i].quantidade}</td>
+            <td><input onchange="manipularQuantidadeCarrinho(this)" id="${carrinho[i].idProduto}" type="number" value="${carrinho[i].quantidade}"></td>
             <td>${produtos[carrinho[i].idProduto].segmento}</td>
             <td onclick="delProdutoFromCarrinho(this)" id="${carrinho[i].idProduto}">Deletar</td>
         </tr>`
@@ -65,6 +65,73 @@ function mostrarCarrinho(){
 
     document.getElementById("total").innerHTML = total.toFixed(2)
     document.getElementsByTagName('tbody')[1].innerHTML = txtCarrinho ;
+}
+
+
+function manipularQuantidadeCarrinho(produto){
+    let valor = parseFloat(produto.value)
+
+    if (localStorage.getItem('carrinho') != null) {
+        carrinho = JSON.parse(localStorage.getItem('carrinho'))
+    }
+
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let produtoEncontrado = 0
+    var antigoEstoque = 0
+    var antigaQuantidade = 0
+    for(let i = 0; i < carrinho.length; i++){
+        if(produto.id == carrinho[i].idProduto){
+            produtoEncontrado = 1
+        } 
+        if(produtoEncontrado == 1){
+
+            antigaQuantidade = carrinho[i].quantidade;
+            antigoEstoque = produtos[produto.id].estoque;
+
+                if(carrinho[i].quantidade < valor){
+                    produtos[produto.id].estoque = produtos[produto.id].estoque - parseInt(valor - carrinho[i].quantidade)
+                } else {
+                        produtos[produto.id].estoque =  produtos[produto.id].estoque + parseInt(carrinho[i].quantidade) - parseInt(valor)
+                }
+                carrinho[i].quantidade = valor
+        }
+
+        if(produtoEncontrado == 1 && produtos[produto.id].estoque < 0){
+            produtos[produto.id].estoque = antigoEstoque
+            carrinho[i].quantidade = antigaQuantidade
+
+            Toastify({
+
+                text: "Não tem estoque o suficiente para essa operação",
+                
+                duration: 3000
+                
+                }).showToast();
+        } else if(produtoEncontrado == 1 && carrinho[i].quantidade < 0){
+            produtos[produto.id].estoque = antigoEstoque
+            carrinho[i].quantidade = antigaQuantidade
+
+            Toastify({
+
+                text: "Não tem quantidade o suficiente para essa operação",
+                
+                duration: 3000
+                
+                }).showToast();
+        }
+    }
+
+
+
+    carrinho = JSON.stringify(carrinho)
+    localStorage.setItem("carrinho", carrinho)
+    produtos = JSON.stringify(produtos)
+    localStorage.setItem("produtos", produtos)
+    
+    mostrarCarrinho()
 }
 
 function delProdutoFromCarrinho(produto){
@@ -165,7 +232,7 @@ function mostrarTabela() {
         produtos = JSON.parse(localStorage.getItem('produtos'))
     }
 
-    let idUsados = []
+    var idUsados = []
 
     var txt = ''
     for (let i = 0; i < 12; i++) {
