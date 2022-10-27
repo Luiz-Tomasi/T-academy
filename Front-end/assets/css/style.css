@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: repeat(10, 10%);
     grid-template-rows: repeat(10, 10vh);
+    margin: 0;
 }
 
 
@@ -151,5 +152,9 @@
 
 .grid-total h2{
     text-align: center;
+    color: white;
+}
+
+.carrinho .listProdutos td {
     color: white;
 }

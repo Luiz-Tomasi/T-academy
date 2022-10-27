@@ -1,42 +1,195 @@
 var produtos = [
-    { id: 1, nome: "Bolacha", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 2, nome: "Biscoito", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 3, nome: "Fruta", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 4, nome: "Lanche", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 5, nome: "Chocolate", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 6, nome: "Pizza", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 7, nome: "Legume", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 8, nome: "Carne", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 9, nome: "Assado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 10, nome: "Salgado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 0, nome: "Bolacha", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 1, nome: "Biscoito", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 2, nome: "Fruta", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 3, nome: "Lanche", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 4, nome: "Chocolate", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 5, nome: "Pizza", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 6, nome: "Legume", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 7, nome: "Carne", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 8, nome: "Assado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    { id: 9, nome: "Salgado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
 
-    { id: 11, nome: "Desinfetante", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 12, nome: "Esponja", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 13, nome: "Detergente", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 14, nome: "Sabão", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 15, nome: "Sabonete", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 16, nome: "Escova", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 17, nome: "Sabão em pó", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 18, nome: "Bombril", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 19, nome: "Água Sanitaria", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 20, nome: "Pano", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 10, nome: "Desinfetante", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 11, nome: "Esponja", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 12, nome: "Detergente", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 13, nome: "Sabão", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 14, nome: "Sabonete", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 15, nome: "Escova", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 16, nome: "Sabão em pó", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 17, nome: "Bombril", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 18, nome: "Água Sanitaria", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    { id: 19, nome: "Pano", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
 
-    { id: 21, nome: "Calça", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 22, nome: "Sapato", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 23, nome: "Camiseta", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 24, nome: "Camisa", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 25, nome: "Vestido", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 26, nome: "Saia", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 27, nome: "Tenis", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 28, nome: "Casaco", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 29, nome: "Moletom", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 30, nome: "Shorts", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 20, nome: "Calça", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 21, nome: "Sapato", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 22, nome: "Camiseta", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 23, nome: "Camisa", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 24, nome: "Vestido", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 25, nome: "Saia", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 26, nome: "Tenis", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 27, nome: "Casaco", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 28, nome: "Moletom", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    { id: 29, nome: "Shorts", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
 ]
 
+var carrinho = [{ id: 1, idProduto: 1, quantidade: 1}]
+carrinho = JSON.stringify(carrinho)
+localStorage.setItem("carrinho", carrinho)
 produtos = JSON.stringify(produtos)
 localStorage.setItem("produtos", produtos)
 
+function mostrarCarrinho(){
+    if (localStorage.getItem('carrinho') != null) {
+        carrinho = JSON.parse(localStorage.getItem('carrinho'))
+    }
 
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let total = 0
+    var txtCarrinho = ''
+    for (let i = 0; i < carrinho.length; i++) {
+            txtCarrinho  += `<tr id="${carrinho[i].idProduto}">
+            <td onclick="addCarrinho(this)" id="${carrinho[i].idProduto}"> ${produtos[carrinho[i].idProduto].nome}</td>
+            <td onclick="addCarrinho(this)" id="${carrinho[i].idProduto}">${produtos[carrinho[i].idProduto].preco}</td>
+            <td onclick="addCarrinho(this)" id="${carrinho[i].idProduto}">${carrinho[i].quantidade}</td>
+            <td>${produtos[carrinho[i].idProduto].segmento}</td>
+            <td onclick="delProdutoFromCarrinho(this)" id="${carrinho[i].idProduto}">Deletar</td>
+        </tr>`
+
+        total += parseFloat(produtos[carrinho[i].idProduto].preco) * parseInt(carrinho[i].quantidade)
+    }
+
+
+    document.getElementById("total").innerHTML = total.toFixed(2)
+    document.getElementsByTagName('tbody')[1].innerHTML = txtCarrinho ;
+}
+
+function delProdutoFromCarrinho(produto){
+    if (localStorage.getItem('carrinho') != null) {
+        carrinho = JSON.parse(localStorage.getItem('carrinho'))
+    }
+
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let deletado = 0
+    for(let i = 0; i < carrinho.length; i++){
+        if(carrinho[i].idProduto == produto.id){
+            produtos[produto.id].estoque += carrinho[i].quantidade
+            carrinho.splice(i, 1)
+            deletado = 1
+        }
+    }
+
+    if(deletado == 0){
+        Toastify({
+
+            text: "Produto não encontrado no carrinho",
+            
+            duration: 3000
+            
+            }).showToast();
+    }
+    
+    carrinho = JSON.stringify(carrinho)
+    localStorage.setItem("carrinho", carrinho)
+    produtos = JSON.stringify(produtos)
+    localStorage.setItem("produtos", produtos)
+    
+    mostrarCarrinho()
+}
+
+function addCarrinho(produto){
+
+    if (localStorage.getItem('carrinho') != null) {
+        carrinho = JSON.parse(localStorage.getItem('carrinho'))
+    }
+
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let produtoNoCarrinho = 0
+    let lastIdPlusOne = 0
+    for (let i = 0; i < carrinho.length; i++){
+        if( produto.id == carrinho[i].idProduto){
+            if( produtos[produto.id].estoque >= 1){
+            carrinho[i].quantidade += 1;
+            produtos[produto.id].estoque -= 1;
+            produtoNoCarrinho +=1
+            } else{
+            Toastify({
+
+                text: "Estoque insuficiente",
+                
+                duration: 3000
+                
+                }).showToast();
+            produtoNoCarrinho +=1
+        }
+        lastIdPlusOne = i + 1
+        }
+    }
+
+    if(produtoNoCarrinho == 0){
+        if(parseInt(produtos[produto.id].estoque) > parseInt(0)){
+            let newProdutoCarrinho = {id: lastIdPlusOne, idProduto: produto.id, quantidade: 1}
+            carrinho.push(newProdutoCarrinho)
+        } else {
+            Toastify({
+
+                text: "Estoque insuficiente",
+                
+                duration: 3000
+                
+                }).showToast();
+        }
+            
+    }
+
+    carrinho = JSON.stringify(carrinho)
+    localStorage.setItem("carrinho", carrinho)
+    produtos = JSON.stringify(produtos)
+    localStorage.setItem("produtos", produtos)
+    
+    mostrarCarrinho()
+}
+
+
+function mostrarTabela() {
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let idUsados = []
+
+    var txt = ''
+    for (let i = 0; i < 12; i++) {
+        let idAleatorio = getRandomNumber()
+        if(idEmUso(idAleatorio, idUsados) == false){
+            idUsados.push(idAleatorio)
+
+            txt += `<tr onclick="addCarrinho(this)" id="${produtos[idAleatorio].id}">
+                <td>${produtos[idAleatorio].id}</td>
+                <td>${produtos[idAleatorio].nome}</td>
+                <td>${produtos[idAleatorio].preco}</td>
+                <td>${produtos[idAleatorio].estoque}</td>
+                <td>${produtos[idAleatorio].segmento}</td>
+                <td>${produtos[idAleatorio].un}</td>
+                <td>Editar</td>
+                <td>Deletar</td>
+            </tr>`
+        } else {
+            i--
+        }
+        
+    }
+    document.getElementsByTagName('tbody')[0].innerHTML = txt;
+}
 
 function mostrarTabelaPorTermo(){
     
@@ -155,37 +308,6 @@ function mostrarPorVestuario(){
             <td>Editar</td>
             <td>Deletar</td>
         </tr>`
-    }
-    document.getElementsByTagName('tbody')[0].innerHTML = txt;
-}
-
-function mostrarTabela() {
-    if (localStorage.getItem('produtos') != null) {
-        produtos = JSON.parse(localStorage.getItem('produtos'))
-    }
-
-    let idUsados = []
-
-    var txt = ''
-    for (let i = 0; i < 12; i++) {
-        let idAleatorio = getRandomNumber()
-        if(idEmUso(idAleatorio, idUsados) == false){
-            idUsados.push(idAleatorio)
-
-            txt += `<tr>
-                <td>${produtos[idAleatorio].id}</td>
-                <td>${produtos[idAleatorio].nome}</td>
-                <td>${produtos[idAleatorio].preco}</td>
-                <td>${produtos[idAleatorio].estoque}</td>
-                <td>${produtos[idAleatorio].segmento}</td>
-                <td>${produtos[idAleatorio].un}</td>
-                <td>Editar</td>
-                <td>Deletar</td>
-            </tr>`
-        } else {
-            i--
-        }
-        
     }
     document.getElementsByTagName('tbody')[0].innerHTML = txt;
 }
