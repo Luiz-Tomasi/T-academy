@@ -33,16 +33,20 @@
             </div>
 
         </div>
-
+        <div class="menu-filtros-top">
+            <div class="grid-filtro-aleatorio">
+                <button type="button" onclick="mostrarTabela(), salvarFiltro(this)" value="Aleatorio" id="filtroAleatorio">Aleatorio</button>
+            </div>
+        </div>
         <div class="menu-filtros">
             <div class="grid-filtro-alimentar">
-                <button type="button" onclick="mostrarPorAlimentar()">Alimentar</button>
+                <button type="button" onclick="mostrarPorAlimentar(), salvarFiltro(this)" value="Alimentar" id="filtroAlimentar">Alimentar</button>
             </div>
             <div class="grid-filtro-limpeza">
-                <button type="button" onclick="mostrarPorLimpeza()">Limpeza</button>
+                <button type="button" onclick="mostrarPorLimpeza(), salvarFiltro(this)" value="Limpeza">Limpeza</button>
             </div>
             <div class="grid-filtro-vestuario">
-                <button type="button" onclick="mostrarPorVestuario()">Vestuario</button>
+                <button type="button" onclick="mostrarPorVestuario(), salvarFiltro(this)" value="Vestuario">Vestuario</button>
             </div>
         </div>
 
@@ -55,7 +59,6 @@
                     <th>Estoque</th>
                     <th>Segmento</th>
                     <th>Unidade</th>
-                    <th>Editar</th>
                     <th>Deletar</th>
                 </thead>
                 <tbody>

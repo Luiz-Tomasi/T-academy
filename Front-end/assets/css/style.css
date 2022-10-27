@@ -62,6 +62,16 @@
     border: none;
 }
 
+.menu-filtros-top{
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-template-rows: 10vh;
+}
+
 .menu-filtros{
     grid-column-start: 1;
     grid-column-end: 7;
@@ -70,6 +80,11 @@
     display: grid;
     grid-template-columns: repeat(3, 33.3%);
     grid-template-rows: 10vh;
+}
+
+.grid-filtro-aleatorio{
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
 
 .grid-filtro-alimentar{
@@ -87,7 +102,7 @@
     grid-row-start: 1;
 }
 
-.grid-filtro-alimentar button, .grid-filtro-limpeza button, .grid-filtro-vestuario button{
+.grid-filtro-alimentar button, .grid-filtro-limpeza button, .grid-filtro-vestuario button, .grid-filtro-aleatorio button{
     background-color: #30343F;
     color: white;
     display: flex;

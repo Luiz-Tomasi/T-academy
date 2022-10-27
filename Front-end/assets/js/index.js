@@ -1,10 +1,14 @@
-if (localStorage.getItem('carrinho') == null) {
+if (localStorage.length > 0){} else{
+    console.log("aqui")
+
     var carrinho = [{ id: 1, idProduto: 1, quantidade: 1}]
     carrinho = JSON.stringify(carrinho)
     localStorage.setItem("carrinho", carrinho)
-}
 
-if (localStorage.getItem('produtos') == null) {
+    var filtro = [{atual: "Aleatorio"}]
+    filtro = JSON.stringify(filtro)
+    localStorage.setItem("filtros", filtro)
+
     var produtos = [
         { id: 0, nome: "Bolacha", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
         { id: 1, nome: "Biscoito", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
@@ -46,6 +50,17 @@ if (localStorage.getItem('produtos') == null) {
 
 var idUsados = []
 
+
+function salvarFiltro(element){
+    if (localStorage.getItem('filtro') != null) {
+        var filtro = JSON.parse(localStorage.getItem('filtro'))
+    }
+
+    let filtroAtual = element.value
+
+    filtroAtual = JSON.stringify(filtroAtual)
+    localStorage.setItem("filtros", filtroAtual)
+}
 
 function mostrarCarrinho(){
     if (localStorage.getItem('carrinho') != null) {
@@ -251,7 +266,6 @@ function atualizarTabelaAleatoria(){
                 <td>${produtos[idUsados[i]].estoque}</td>
                 <td>${produtos[idUsados[i]].segmento}</td>
                 <td>${produtos[idUsados[i]].un}</td>
-                <td>Editar</td>
                 <td>Deletar</td>
             </tr>`
     }
@@ -279,7 +293,6 @@ function mostrarTabela() {
                 <td>${produtos[idAleatorio].estoque}</td>
                 <td>${produtos[idAleatorio].segmento}</td>
                 <td>${produtos[idAleatorio].un}</td>
-                <td>Editar</td>
                 <td>Deletar</td>
             </tr>`
         } else {
@@ -309,14 +322,13 @@ function mostrarTabelaPorTermo(){
 
     var txt = ''
     for (let i = 0; i < produtosPorTermo.length; i++) {
-            txt += `<tr>
+            txt += `<tr onclick="addCarrinho(this)" id="${produtosPorTermo[i].id}">
             <td>${produtosPorTermo[i].id}</td>
             <td>${produtosPorTermo[i].nome}</td>
             <td>${produtosPorTermo[i].preco}</td>
             <td>${produtosPorTermo[i].estoque}</td>
             <td>${produtosPorTermo[i].segmento}</td>
             <td>${produtosPorTermo[i].un}</td>
-            <td>Editar</td>
             <td>Deletar</td>
         </tr>`
     }
@@ -339,14 +351,13 @@ function mostrarPorAlimentar(){
 
     var txt = ''
     for (let i = 0; i < produtosPorAlimentar.length; i++) {
-            txt += `<tr>
+            txt += `<tr onclick="addCarrinho(this)" id="${produtosPorAlimentar[i].id}">
             <td>${produtosPorAlimentar[i].id}</td>
             <td>${produtosPorAlimentar[i].nome}</td>
             <td>${produtosPorAlimentar[i].preco}</td>
             <td>${produtosPorAlimentar[i].estoque}</td>
             <td>${produtosPorAlimentar[i].segmento}</td>
             <td>${produtosPorAlimentar[i].un}</td>
-            <td>Editar</td>
             <td>Deletar</td>
         </tr>`
     }
@@ -368,14 +379,13 @@ function mostrarPorLimpeza(){
 
     var txt = ''
     for (let i = 0; i < produtosPorLimpeza.length; i++) {
-            txt += `<tr>
+            txt += `<tr onclick="addCarrinho(this)" id="${produtosPorLimpeza[i].id}">
             <td>${produtosPorLimpeza[i].id}</td>
             <td>${produtosPorLimpeza[i].nome}</td>
             <td>${produtosPorLimpeza[i].preco}</td>
             <td>${produtosPorLimpeza[i].estoque}</td>
             <td>${produtosPorLimpeza[i].segmento}</td>
             <td>${produtosPorLimpeza[i].un}</td>
-            <td>Editar</td>
             <td>Deletar</td>
         </tr>`
     }
@@ -397,14 +407,13 @@ function mostrarPorVestuario(){
 
     var txt = ''
     for (let i = 0; i < produtosPorVestuario.length; i++) {
-            txt += `<tr>
+            txt += `<tr onclick="addCarrinho(this)" id="${produtosPorVestuario[i].id}">
             <td>${produtosPorVestuario[i].id}</td>
             <td>${produtosPorVestuario[i].nome}</td>
             <td>${produtosPorVestuario[i].preco}</td>
             <td>${produtosPorVestuario[i].estoque}</td>
             <td>${produtosPorVestuario[i].segmento}</td>
             <td>${produtosPorVestuario[i].un}</td>
-            <td>Editar</td>
             <td>Deletar</td>
         </tr>`
     }
