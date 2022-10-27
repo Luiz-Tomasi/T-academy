@@ -10,12 +10,6 @@
     grid-template-rows: repeat(10, 10vh);
 }
 
-.listProdutos{
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 3;
-    grid-row-end: 10;
-}
 
 .menu{
     position: absolute;
@@ -66,4 +60,48 @@
     margin-top: 2.5vh;
     color: white;
     border: none;
+}
+
+.menu-filtros{
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-template-rows: 10vh;
+}
+
+.grid-filtro-alimentar{
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.grid-filtro-limpeza{
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+.grid-filtro-vestuario{
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+
+.grid-filtro-alimentar button, .grid-filtro-limpeza button, .grid-filtro-vestuario button{
+    background-color: #30343F;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+
+.listProdutos{
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 10;
+    overflow-y:scroll;
 }

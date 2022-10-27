@@ -51,7 +51,6 @@ function mostrarTabelaPorTermo(){
     for(let i = 0; i < produtos.length; i++){
         if(produtos[i].nome.indexOf(termo) != -1){
             produtosPorTermo.push(produtos[i])
-            console.log(produtos[i].nome)
         }
     }
 
@@ -73,6 +72,92 @@ function mostrarTabelaPorTermo(){
 
 }
 
+function mostrarPorAlimentar(){
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let produtosPorAlimentar = []
+
+    for(let i = 0; i < produtos.length; i++){
+        if(produtos[i].segmento.indexOf("Alimentar") != -1){
+            produtosPorAlimentar.push(produtos[i])
+        }
+    }
+
+    var txt = ''
+    for (let i = 0; i < produtosPorAlimentar.length; i++) {
+            txt += `<tr>
+            <td>${produtosPorAlimentar[i].id}</td>
+            <td>${produtosPorAlimentar[i].nome}</td>
+            <td>${produtosPorAlimentar[i].preco}</td>
+            <td>${produtosPorAlimentar[i].estoque}</td>
+            <td>${produtosPorAlimentar[i].segmento}</td>
+            <td>${produtosPorAlimentar[i].un}</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>`
+    }
+    document.getElementsByTagName('tbody')[0].innerHTML = txt;
+}
+
+function mostrarPorLimpeza(){
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let produtosPorLimpeza = []
+
+    for(let i = 0; i < produtos.length; i++){
+        if(produtos[i].segmento.indexOf("Limpeza") != -1){
+            produtosPorLimpeza.push(produtos[i])
+        }
+    }
+
+    var txt = ''
+    for (let i = 0; i < produtosPorLimpeza.length; i++) {
+            txt += `<tr>
+            <td>${produtosPorLimpeza[i].id}</td>
+            <td>${produtosPorLimpeza[i].nome}</td>
+            <td>${produtosPorLimpeza[i].preco}</td>
+            <td>${produtosPorLimpeza[i].estoque}</td>
+            <td>${produtosPorLimpeza[i].segmento}</td>
+            <td>${produtosPorLimpeza[i].un}</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>`
+    }
+    document.getElementsByTagName('tbody')[0].innerHTML = txt;
+}
+
+function mostrarPorVestuario(){
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    let produtosPorVestuario = []
+
+    for(let i = 0; i < produtos.length; i++){
+        if(produtos[i].segmento.indexOf("Vestuario") != -1){
+            produtosPorVestuario.push(produtos[i])
+        }
+    }
+
+    var txt = ''
+    for (let i = 0; i < produtosPorVestuario.length; i++) {
+            txt += `<tr>
+            <td>${produtosPorVestuario[i].id}</td>
+            <td>${produtosPorVestuario[i].nome}</td>
+            <td>${produtosPorVestuario[i].preco}</td>
+            <td>${produtosPorVestuario[i].estoque}</td>
+            <td>${produtosPorVestuario[i].segmento}</td>
+            <td>${produtosPorVestuario[i].un}</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>`
+    }
+    document.getElementsByTagName('tbody')[0].innerHTML = txt;
+}
 
 function mostrarTabela() {
     if (localStorage.getItem('produtos') != null) {
