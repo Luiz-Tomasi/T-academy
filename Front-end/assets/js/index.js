@@ -1,43 +1,51 @@
-var produtos = [
-    { id: 0, nome: "Bolacha", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 1, nome: "Biscoito", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 2, nome: "Fruta", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 3, nome: "Lanche", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 4, nome: "Chocolate", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 5, nome: "Pizza", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 6, nome: "Legume", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 7, nome: "Carne", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 8, nome: "Assado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
-    { id: 9, nome: "Salgado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+if (localStorage.getItem('carrinho') == null) {
+    var carrinho = [{ id: 1, idProduto: 1, quantidade: 1}]
+    carrinho = JSON.stringify(carrinho)
+    localStorage.setItem("carrinho", carrinho)
+}
 
-    { id: 10, nome: "Desinfetante", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 11, nome: "Esponja", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 12, nome: "Detergente", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 13, nome: "Sabão", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 14, nome: "Sabonete", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 15, nome: "Escova", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 16, nome: "Sabão em pó", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 17, nome: "Bombril", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 18, nome: "Água Sanitaria", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
-    { id: 19, nome: "Pano", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+if (localStorage.getItem('produtos') == null) {
+    var produtos = [
+        { id: 0, nome: "Bolacha", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 1, nome: "Biscoito", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 2, nome: "Fruta", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 3, nome: "Lanche", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 4, nome: "Chocolate", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 5, nome: "Pizza", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 6, nome: "Legume", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 7, nome: "Carne", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 8, nome: "Assado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+        { id: 9, nome: "Salgado", preco: 5.1, estoque: 10, segmento: "Alimentar" , un: 'SC' },
+    
+        { id: 10, nome: "Desinfetante", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 11, nome: "Esponja", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 12, nome: "Detergente", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 13, nome: "Sabão", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 14, nome: "Sabonete", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 15, nome: "Escova", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 16, nome: "Sabão em pó", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 17, nome: "Bombril", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 18, nome: "Água Sanitaria", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+        { id: 19, nome: "Pano", preco: 5.1, estoque: 10, segmento: "Limpeza" , un: 'SC' },
+    
+        { id: 20, nome: "Calça", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 21, nome: "Sapato", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 22, nome: "Camiseta", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 23, nome: "Camisa", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 24, nome: "Vestido", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 25, nome: "Saia", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 26, nome: "Tenis", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 27, nome: "Casaco", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 28, nome: "Moletom", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+        { id: 29, nome: "Shorts", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
+    ]
 
-    { id: 20, nome: "Calça", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 21, nome: "Sapato", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 22, nome: "Camiseta", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 23, nome: "Camisa", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 24, nome: "Vestido", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 25, nome: "Saia", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 26, nome: "Tenis", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 27, nome: "Casaco", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 28, nome: "Moletom", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-    { id: 29, nome: "Shorts", preco: 5.1, estoque: 10, segmento: "Vestuario" , un: 'SC' },
-]
+    produtos = JSON.stringify(produtos)
+    localStorage.setItem("produtos", produtos)
+}
 
-var carrinho = [{ id: 1, idProduto: 1, quantidade: 1}]
-carrinho = JSON.stringify(carrinho)
-localStorage.setItem("carrinho", carrinho)
-produtos = JSON.stringify(produtos)
-localStorage.setItem("produtos", produtos)
+var idUsados = []
+
 
 function mostrarCarrinho(){
     if (localStorage.getItem('carrinho') != null) {
@@ -64,7 +72,7 @@ function mostrarCarrinho(){
 
 
     document.getElementById("total").innerHTML = total.toFixed(2)
-    document.getElementsByTagName('tbody')[1].innerHTML = txtCarrinho ;
+    document.getElementsByTagName('tbody')[1].innerHTML = txtCarrinho;
 }
 
 
@@ -132,6 +140,7 @@ function manipularQuantidadeCarrinho(produto){
     localStorage.setItem("produtos", produtos)
     
     mostrarCarrinho()
+    atualizarTabelaAleatoria()
 }
 
 function delProdutoFromCarrinho(produto){
@@ -226,13 +235,36 @@ function addCarrinho(produto){
     mostrarCarrinho()
 }
 
+function atualizarTabelaAleatoria(){
+    if (localStorage.getItem('produtos') != null) {
+        produtos = JSON.parse(localStorage.getItem('produtos'))
+    }
+
+    var txt = ''
+    for(let i = 0; i < 12; i++) {
+        console.log(idUsados)
+        console.log(idUsados[1])
+        txt += `<tr onclick="addCarrinho(this)" id="${produtos[idUsados[i]].id}">
+                <td>${produtos[idUsados[i]].id}</td>
+                <td>${produtos[idUsados[i]].nome}</td>
+                <td>${produtos[idUsados[i]].preco}</td>
+                <td>${produtos[idUsados[i]].estoque}</td>
+                <td>${produtos[idUsados[i]].segmento}</td>
+                <td>${produtos[idUsados[i]].un}</td>
+                <td>Editar</td>
+                <td>Deletar</td>
+            </tr>`
+    }
+
+    document.getElementsByTagName('tbody')[0].innerHTML = txt;
+}
 
 function mostrarTabela() {
     if (localStorage.getItem('produtos') != null) {
         produtos = JSON.parse(localStorage.getItem('produtos'))
     }
 
-    var idUsados = []
+    idUsados = []
 
     var txt = ''
     for (let i = 0; i < 12; i++) {
