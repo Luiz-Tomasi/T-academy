@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/stylePostagem/style.css">
      <!-- Js import -->
     <script src="assets/index.js"></script>
-
+    
     <title>Blog</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
         <div class="menu">
         </div>
 
-        <div class="listaPostagens">
+        <div class="grid-postagem">
             <table class="table">
                 <thead>
                     <tr>
@@ -41,15 +41,15 @@
                         Postagem postagem = DaoPostagem.consultarPorId(Integer.parseInt(idPostagem));
                         out.write("<tr>");
                         out.write("<td>"+postagem.getIdPostagem()+"</td>");
-                        out.write("<td>"+postagem.getTexto()+"</td>");
+                        out.write("<td class='overflow'><p>"+postagem.getTexto()+"</p></td>");
                         out.write("<td>"+postagem.getIdUsuario()+"</td>");
                         out.write("</tr>");
                     %>
                 </tbody>
             </table>
+            
         </div>
     </div>
-
 
 
     <!-- Toastify-js notifications -->
