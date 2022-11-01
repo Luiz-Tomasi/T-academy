@@ -34,4 +34,24 @@ public class DaoPostagem {
         }
         return lista;
     }
+
+    public static Postagem consultarPorId(int idPostagem){
+        Connection con = Conexao.conectar();
+        Postagem p = new Postagem();
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement("select * from postagem where id = ?");
+                stm.setInt(1,idPostagem);
+                ResultSet rs = stm.executeQuery();
+                if(rs.next()){
+                    p.setIdPostagem(rs.getInt("idPostagem"));
+                    p.setTexto(rs.getString("texto"));
+                    p.setIdUsuario(rs.getInt("idUsuario"));
+                }
+            } catch (SQLException e) {
+                return p;
+            }
+        }
+        return p;
+    }
 }

@@ -37,6 +37,7 @@
                         <th>Id</th>
                         <th>Texto</th>
                         <th>IdUsuario</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,7 @@
                             out.write("<td>"+postagem.getIdPostagem()+"</td>");
                             out.write("<td>"+postagem.getTexto()+"</td>");
                             out.write("<td>"+postagem.getIdUsuario()+"</td>");
+                            out.write("<td><a class='me-2' href='Postagem.jsp?id="+postagem.getIdPostagem()+"'>Editar</a></td>");
                             out.write("</tr>");
                         }
                     %>
