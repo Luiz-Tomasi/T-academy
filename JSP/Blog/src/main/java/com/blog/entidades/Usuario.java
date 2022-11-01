@@ -1,4 +1,4 @@
-package com.blog.Entidades;
+package com.blog.entidades;
 
 public class Usuario {
     private int idUsuario;

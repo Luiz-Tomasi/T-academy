@@ -1,1 +1,3 @@
+utils\Conexao.class
+com\blog\Dao\DaoUsuario.class
 com\blog\Entidades\Usuario.class

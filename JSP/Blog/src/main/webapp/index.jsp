@@ -1,3 +1,7 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="com.blog.entidades.Usuario" %>
+<%@ page import="com.blog.dao.DaoUsuario" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,8 +25,35 @@
 <body>
     <div class="container">
         <div class="menu">
-            
+
         </div>
+
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Senha</th>
+                        <th>Moderador</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+
+                       List<Usuario> lista = DaoUsuario.consultarUsuarios();
+                       for(Usuario usuario : lista){
+                          out.write("<tr>");
+                          out.write("<td>"+usuario.getIdUsuario()+"</td>");
+                          out.write("<td>"+usuario.getEmail()+"</td>");
+                          out.write("<td>"+usuario.getSenha()+"</td>");
+                          out.write("<td>"+usuario.getModerador()+"</td>");
+                          out.write("</tr>");
+                       }
+                    %>
+                </tbody>
+            </table>
     </div>
 
 
@@ -39,6 +70,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script></script>
+    <script>console.log(<%  %></script>
 </body>
 </html>

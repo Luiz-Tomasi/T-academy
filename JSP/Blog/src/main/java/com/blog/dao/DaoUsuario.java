@@ -1,6 +1,6 @@
-package com.blog.Dao;
+package com.blog.dao;
 
-import com.blog.Entidades.Usuario;
+import com.blog.entidades.Usuario;
 import utils.Conexao;
 
 import java.sql.Connection;
@@ -10,15 +10,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DaoUsuario {
     public static List<Usuario> usuarios = new ArrayList<Usuario>();
 
+    public static String conectado(){
+        Connection con = Conexao.conectar();
+        if(con != null) {
+            return "Conectado";
+        } else{
+            return "Não Conectado";
+        }
+    }
     public  static List<Usuario> consultarUsuarios(){
         List<Usuario> lista = new ArrayList<Usuario>();
         Connection con = Conexao.conectar();
         if(con != null) {
             try {
-                PreparedStatement stm = con.prepareStatement("select * from usuario");
+                PreparedStatement stm = con.prepareStatement("select * from usuario;");
                 ResultSet rs = stm.executeQuery();
                 while (rs.next()) {
                     Usuario u = new Usuario();
