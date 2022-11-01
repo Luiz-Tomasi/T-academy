@@ -19,8 +19,12 @@
     <title>Blog</title>
 </head>
 <body>
-    
-    
+    <div class="container">
+        <div class="menu">
+            
+        </div>
+    </div>
+
 
 
     <!-- Toastify-js notifications -->
