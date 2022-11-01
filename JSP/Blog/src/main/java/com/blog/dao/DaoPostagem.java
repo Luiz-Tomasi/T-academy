@@ -35,13 +35,13 @@ public class DaoPostagem {
         return lista;
     }
 
-    public static Postagem consultarPorId(int idPostagem){
+    public static Postagem consultarPorId(int id){
         Connection con = Conexao.conectar();
         Postagem p = new Postagem();
         if(con != null){
             try {
-                PreparedStatement stm = con.prepareStatement("select * from postagem where id = ?");
-                stm.setInt(1,idPostagem);
+                PreparedStatement stm = con.prepareStatement("select * from postagem where idPostagem = ?");
+                stm.setInt(1,id);
                 ResultSet rs = stm.executeQuery();
                 if(rs.next()){
                     p.setIdPostagem(rs.getInt("idPostagem"));
