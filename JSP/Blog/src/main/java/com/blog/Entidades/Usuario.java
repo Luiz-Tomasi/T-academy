@@ -1,12 +1,20 @@
 package com.blog.Entidades;
 
 public class Usuario {
-    private int id;
+    private int idUsuario;
     private String email;
     private String senha;
     private int moderador = 0;
 
     public Usuario() {
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public Usuario(String email, String senha, int moderador) {
@@ -20,19 +28,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(int id, String email, String senha, int moderador) {
-        this.id = id;
+    public Usuario(int idUsuario, String email, String senha, int moderador) {
+        this.idUsuario = idUsuario;
         this.email = email;
         this.senha = senha;
         this.moderador = moderador;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmail() {
