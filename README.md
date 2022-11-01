@@ -1,7 +1,3 @@
-Ordem de execução recomendada:
-Create_Tables |
-Views |
-Triggers |
-Procedures |
-Inserts_Update_delete |
-Inserts Especiais
+<hr>
+<h1 align="center">A 3° Avaliação está no arquivo "Front-end"</h1>
+<hr>
