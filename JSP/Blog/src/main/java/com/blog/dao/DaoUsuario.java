@@ -14,14 +14,6 @@ import java.util.List;
 public class DaoUsuario {
     public static List<Usuario> usuarios = new ArrayList<Usuario>();
 
-    public static String conectado(){
-        Connection con = Conexao.conectar();
-        if(con != null) {
-            return "Conectado";
-        } else{
-            return "Não Conectado";
-        }
-    }
     public  static List<Usuario> consultarUsuarios(){
         List<Usuario> lista = new ArrayList<Usuario>();
         Connection con = Conexao.conectar();

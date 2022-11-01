@@ -1,3 +1,5 @@
 utils\Conexao.class
+com\blog\Dao\DaoPostagem.class
 com\blog\Dao\DaoUsuario.class
 com\blog\Entidades\Usuario.class
+com\blog\Entidades\Postagem.class

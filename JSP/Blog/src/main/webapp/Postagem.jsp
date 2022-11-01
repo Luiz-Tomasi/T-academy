@@ -27,7 +27,7 @@
 <body>
     <div class="container">
         <div class="menu">
-        
+
         </div>
 
         <div class="listaPostagens">
