@@ -34,6 +34,21 @@
     grid-template-rows: repeat(1, 10vh);
 }
 
+.login{
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+button{
+    width: 200%;
+    height: 100%;
+}
+
 .containerP{
     display:inline;
     width: 100%;

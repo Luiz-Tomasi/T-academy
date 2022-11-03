@@ -26,6 +26,9 @@
 <body>
     <div class="container">
         <div class="menu">
+            <div class="login">
+                <a href="LoginCadastro.jsp"><button>Login</button></a>
+            </div>
         </div>
 
         <div class="grid-postagem">

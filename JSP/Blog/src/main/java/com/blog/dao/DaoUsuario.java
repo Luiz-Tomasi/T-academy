@@ -35,4 +35,28 @@ public class DaoUsuario {
         }
         return lista;
     }
+
+    public static Usuario autenticarLogin(String email, String senha){
+        Connection con = Conexao.conectar();
+        Usuario u = new Usuario();
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement("select * from usuario where email = ? and senha = ?");
+                stm.setString(1,email);
+                stm.setString(2,senha);
+                ResultSet rs = stm.executeQuery();
+                if(rs.next()){
+                    u.setIdUsuario(rs.getInt("idUsuario"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSenha(rs.getString("senha"));
+                    u.setModerador(rs.getInt("moderador"));
+                }
+            } catch (SQLException e) {
+                return u;
+            }
+        }
+        return u;
+    }
+
+
 }

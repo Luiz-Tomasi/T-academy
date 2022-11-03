@@ -33,7 +33,7 @@
                         List<Postagem> lista = DaoPostagem.consultarUltimasPostagens();
                         for(Postagem postagem : lista){
                                 String textoLimitado = postagem.getTexto();
-                                textoLimitado = textoLimitado.substring(0,16);
+                                textoLimitado = textoLimitado.substring(0,15);
                                 out.write("<div class='card'>");
                                 out.write("<tr>");
                                 out.write("<td>"+"<h1>"+postagem.getTitulo()+"</h1>"+"</td>");
