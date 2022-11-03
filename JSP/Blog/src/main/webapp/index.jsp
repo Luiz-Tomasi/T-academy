@@ -27,13 +27,27 @@
             <a href="AceitarComentario.jsp"><button style="visibility: hidden;" id="verificarComentarios">Verificar Comentarios</button></a>
         </div>
 
+        <div class="grid-addPostagem" style="grid-column-start: 2;
+                                                 grid-column-end: 4;
+                                                 grid-row-start: 3;
+                                                 grid-row-end: 4;
+                                                 height: 50px;
+                                                 width: 150px;
+                                                 background-color: red;
+                                                 display: flex;
+                                                 justify-content: center;
+                                                 justify-item:center;">
+            <% out.write("<a href='AdicionarPost.jsp'> <button id='adicionar'>Adicionar</button> </a>");%>
+        </div>
         <div class="listaPostagens">
                 <tbody>
                     <%
                         List<Postagem> lista = DaoPostagem.consultarUltimasPostagens();
                         for(Postagem postagem : lista){
                                 String textoLimitado = postagem.getTexto();
+                                if(textoLimitado.length() > 15) {
                                 textoLimitado = textoLimitado.substring(0,15);
+                                }
                                 out.write("<div class='card'>");
                                 out.write("<tr>");
                                 out.write("<td>"+"<h1>"+postagem.getTitulo()+"</h1>"+"</td>");
@@ -49,7 +63,7 @@
 
 <script>
     console.log(sessionStorage.getItem("Moderador"))
-    if(sessionStorage.getItem("Moderador") == 0){
+    if(sessionStorage.getItem("Moderador") == 0 || sessionStorage.getItem("Moderador") == Null){
         document.getElementById("verificarComentarios").style.visibility = "hidden";
     } else {
         document.getElementById("verificarComentarios").style.visibility = "visible";

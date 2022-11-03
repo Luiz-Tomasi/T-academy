@@ -1,0 +1,65 @@
+:root{
+    --backgroundblack: rgba(7, 16, 19, 0.08);
+    --black: rgba(7, 16, 19, 0.6);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10vh);
+}
+
+.loginArea{
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 9;
+    background-color: #30343F;
+    border-radius: 16px;
+    color: white;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+#signIn{
+    font-size: 2em;
+}
+
+.loginArea input[type]{
+    width: 100%;
+    height: 8vh;
+    background-color: var(--black);
+    color: white;
+}
+
+#senha{
+    width: 150%;
+    height: 15vh;
+    text-align: center;
+    background-color: var(--black);
+    color: white;
+}
+
+
+.loginArea input[type]::placeholder{
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+
+#submitLogin{
+    color: white;
+    border: none;
+}
+
+#cadastrar{
+    border: none;
+    width: 100%;
+    height: 8vh;
+    color: white;
+}

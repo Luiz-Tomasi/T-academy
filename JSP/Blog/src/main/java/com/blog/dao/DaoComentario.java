@@ -131,4 +131,20 @@ public class DaoComentario {
         return "Finalizado";
     }
 
+    public static String deletaComentarioPorPostagem(int id){
+        Connection con = Conexao.conectar();
+        String sql = "delete from comentario where idPostagem = ?;";
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setInt(1,id);
+                stm.execute();
+            } catch (SQLException e) {
+                return "Deu erro";
+            }
+            return "Executado";
+        }
+        return "Finalizado";
+    }
+
 }

@@ -49,3 +49,17 @@
     width: 200px;
     height: 10vh;
 }
+
+.grid-addPostagem{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    height: 50px;
+    width: 150px;
+    background-color: red;
+}
+
+.grid-addPostagem button{
+    height: 100% height: 100%;
+}

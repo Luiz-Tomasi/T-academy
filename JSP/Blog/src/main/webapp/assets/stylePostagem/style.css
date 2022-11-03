@@ -87,3 +87,11 @@ form button {
 .comentarios{
     border: 2px solid black;
 }
+
+#editar button, #deletar button {
+    width: 150px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #FF7F11;
+    color: white;
+}

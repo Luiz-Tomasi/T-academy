@@ -44,6 +44,8 @@
                 <input type="text" name="comentario" id = "comentario">
                 <button type="button" id="enviarButton" onclick="verificaUsuario()">Enviar</button>
             </form>
+            <% out.write("<a href='DeletarPostURL.jsp?id="+idPostagem+"'");%><button id="deletar" >Deletar</button><% out.write("</a>");%>
+            <% out.write("<a href='EditarPost.jsp?id="+idPostagem+"'");%><button id="editar" >Editar</button><% out.write("</a>");%>
         </div>
         <div class="grid-comentarios">
             <%
@@ -69,7 +71,26 @@
         }
     %>
 
-    
+    <script>
+        if(sessionStorage.getItem("email") != null || sessionStorage.getItem("senha") != null){
+            
+        } else {
+            document.getElementById("comentario").value = "Para comentar é necessário efetuar o login, clique aqu";
+            document.getElementById("comentario").readOnly = true;
+        }   
+    </script>
+    <script>
+        console.log(sessionStorage.getItem("Moderador"))
+            if(sessionStorage.getItem("Moderador") == 1) {  
+                document.getElementById("deletar").style.visibility = "visible";
+                document.getElementById("editar").style.visibility = "visible";
+            } else {
+                document.getElementById("deletar").style.visibility = "hidden";
+                document.getElementById("editar").style.visibility = "hidden";
+            }
+    </script>
+
+
     <!-- Toastify-js notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>

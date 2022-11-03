@@ -1,5 +1,6 @@
 package com.blog.dao;
 
+import com.blog.entidades.Comentario;
 import com.blog.entidades.Postagem;
 import utils.Conexao;
 
@@ -13,6 +14,28 @@ import java.util.List;
 public class DaoPostagem {
 
     public static List<Postagem> Postagens = new ArrayList<Postagem>();
+
+    public static String salvar(Postagem post){
+        Connection con = Conexao.conectar();
+        if(con != null){
+
+            String sql = "insert into postagem(titulo, verificado, texto)" +
+                    "values(?,?,?)";
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setString(1,post.getTitulo());
+                stm.setInt(2,0);
+                stm.setString(3,post.getTexto());
+
+                stm.execute();
+
+            } catch (SQLException e) {
+                return  "Erro: " + e.getMessage();
+            }
+            return "Registro inserido com sucesso";
+        }
+        return "erro de conexão";
+    }
 
     public  static List<Postagem> consultarUltimasPostagens(){
         List<Postagem> lista = new ArrayList<Postagem>();
@@ -36,6 +59,23 @@ public class DaoPostagem {
         return lista;
     }
 
+    public static String editarPostagem(int id, String novoTexto){
+        Connection con = Conexao.conectar();
+        String sql = "update postagem set texto = ? where idPostagem = ?";
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setString(1,novoTexto);
+                stm.setInt(2, id);
+                stm.execute();
+            } catch (SQLException e) {
+                return "Deu erro";
+            }
+            return "Executado";
+        }
+        return "Finalizado";
+    }
+
     public static Postagem consultarPorId(int id){
         Connection con = Conexao.conectar();
         Postagem p = new Postagem();
@@ -55,5 +95,21 @@ public class DaoPostagem {
             }
         }
         return p;
+    }
+
+    public static String deletaPostagem(int id){
+        Connection con = Conexao.conectar();
+        String sql = "delete from postagem where idPostagem = ?;";
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setInt(1,id);
+                stm.execute();
+            } catch (SQLException e) {
+                return "Deu erro";
+            }
+            return "Executado";
+        }
+        return "Finalizado";
     }
 }
