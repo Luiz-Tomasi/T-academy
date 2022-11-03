@@ -44,3 +44,8 @@
 .card p, .card a{
     padding-top: 3px;
 }
+
+.menu a{
+    width: 200px;
+    height: 10vh;
+}

@@ -24,7 +24,7 @@
 <body>
     <div class="container">
         <div class="menu">
-        
+            <a href="AceitarComentario.jsp"><button style="visibility: hidden;" id="verificarComentarios">Verificar Comentarios</button></a>
         </div>
 
         <div class="listaPostagens">
@@ -47,7 +47,14 @@
         </div>
     </div>
 
-
+<script>
+    console.log(sessionStorage.getItem("Moderador"))
+    if(sessionStorage.getItem("Moderador") == 0){
+        document.getElementById("verificarComentarios").style.visibility = "hidden";
+    } else {
+        document.getElementById("verificarComentarios").style.visibility = "visible";
+    }
+</script>
 
     <!-- Toastify-js notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

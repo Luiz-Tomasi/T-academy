@@ -40,6 +40,7 @@
     border-radius: 8px;
     background-color: orange;
     vertical-align: center;
+    
 }
 
 .card p, .card a{
@@ -49,3 +50,5 @@
 span{
     color: blue;
 }
+
+
