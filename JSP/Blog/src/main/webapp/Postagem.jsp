@@ -53,7 +53,7 @@
                 List<Comentario> lista = DaoComentario.consultarComentarios(Integer.parseInt(idPostagem2));
                 for(Comentario comentario : lista){
                 String ultimoComentario = comentario.getComentario();
-                out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");
+                out.write("<a id='hrefComentario'>");out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");out.write("</a>");
                 }
             %>
         </div>
@@ -75,7 +75,9 @@
         if(sessionStorage.getItem("email") != null || sessionStorage.getItem("senha") != null){
             
         } else {
-            document.getElementById("comentario").value = "Para comentar é necessário efetuar o login, clique aqu";
+            document.getElementById("comentario").value = "Para comentar é necessário efetuar o login, clique em login";
+            a = document.getElementById("hrefComentario");
+            a.setAttribute("href","localhost:8080/LoginCadastro.jsp");
             document.getElementById("comentario").readOnly = true;
         }   
     </script>

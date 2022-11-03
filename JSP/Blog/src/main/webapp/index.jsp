@@ -63,10 +63,10 @@
 
 <script>
     console.log(sessionStorage.getItem("Moderador"))
-    if(sessionStorage.getItem("Moderador") == 0 || sessionStorage.getItem("Moderador") == Null){
-        document.getElementById("verificarComentarios").style.visibility = "hidden";
-    } else {
+    if(sessionStorage.getItem("Moderador") == 1 ){
         document.getElementById("verificarComentarios").style.visibility = "visible";
+    } else {
+        document.getElementById("verificarComentarios").style.visibility = "hidden";
     }
 </script>
 
