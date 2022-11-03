@@ -32,15 +32,18 @@
         </div>
 
         <div class="grid-postagem">
-                    <%
-                        String idPostagem = request.getParameter("id");
-                        Postagem postagem = DaoPostagem.consultarPorId(Integer.parseInt(idPostagem));
+            <%
+                String idPostagem = request.getParameter("id");
+                Postagem postagem = DaoPostagem.consultarPorId(Integer.parseInt(idPostagem));
 
-                        out.write("<h1>"+postagem.getTitulo()+"</h1>");
-                        out.write("<div class='containerP'><p>"+postagem.getTexto()+"</p></div>");
-                    %>
-                    <hr class="hr">
-
+                out.write("<h1>"+postagem.getTitulo()+"</h1>");
+                out.write("<div class='containerP'><p>"+postagem.getTexto()+"</p></div>");
+            %>
+            <hr class="hr">
+            <form <%out.write("action='Postagem.jsp?id="+idPostagem+"'<idPostagem");%> method="POST" id="enviarComentario">
+                <input type="text" name="comentario" id = "comentario">
+                <button type="button" id="enviarButton" onclick="verificaUsuario()">Enviar</button>
+            </form>
         </div>
         <div class="grid-comentarios">
             <%
@@ -48,13 +51,25 @@
                 List<Comentario> lista = DaoComentario.consultarComentarios(Integer.parseInt(idPostagem2));
                 for(Comentario comentario : lista){
                 String ultimoComentario = comentario.getComentario();
-                    out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");
+                out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");
                 }
             %>
         </div>
     </div>
 
 
+    <%
+        String text = request.getParameter("comentario");
+        if(text != null){
+        Comentario comentario = new Comentario();
+        comentario.setComentario(text);
+        comentario.setVerificado(0);
+
+        DaoComentario.salvar(comentario, Integer.parseInt(request.getParameter("id")));
+        }
+    %>
+
+    
     <!-- Toastify-js notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>

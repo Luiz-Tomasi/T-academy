@@ -21,8 +21,7 @@
 
     <title>Login Page</title>
 </head>
-<body
->
+<body>
 
 
     <div class="container">
@@ -56,9 +55,12 @@
         String emailAtual = request.getParameter("email");
         String senhaAtual = request.getParameter("senha");
         Usuario usuarioAtual = DaoUsuario.autenticarLogin(emailAtual, senhaAtual);
-        if(emailAtual.equals(usuarioAtual.getEmail()) && senhaAtual.equals(usuarioAtual.getSenha())){
-            out.write("<script>sessionStorage.setItem('email', '"+emailAtual+"')</script>");
-            out.write("<script>sessionStorage.setItem('senha', '"+senhaAtual+"')</script>");
+        if(emailAtual != null){
+            if(emailAtual.equals(usuarioAtual.getEmail()) && senhaAtual.equals(usuarioAtual.getSenha())){
+                        out.write("<script>sessionStorage.setItem('email', '"+emailAtual+"')</script>");
+                        out.write("<script>sessionStorage.setItem('senha', '"+senhaAtual+"')</script>");
+                        out.write("<script> trocarPag() </script>");
+            }
         }
     %>
     

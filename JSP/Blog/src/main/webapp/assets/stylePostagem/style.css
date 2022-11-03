@@ -44,7 +44,7 @@
     width: 100%;
 }
 
-button{
+.menu button{
     width: 200%;
     height: 100%;
 }
@@ -61,6 +61,16 @@ button{
     width: 100%;
     height: 2px;
     border: 2px solid white;
+}
+
+#comentario{
+    width: 100%;
+    height: 80px;
+}
+
+form button {
+    width: 100%;
+    height: 100%;
 }
 
 .grid-comentarios{

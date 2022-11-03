@@ -8,5 +8,19 @@ function estaLogado(email, senha){
         console.log("Não ta logado")
         logado = 0
     }
+}
 
+function trocarPag(){
+    document.location.href = "http://localhost:8080";
+}
+
+function verificaUsuario(){
+    if(sessionStorage.getItem('email') != null && sessionStorage.getItem('senha') != null){
+        document.getElementById("enviarComentario").submit();
+        console.log("ta indo?")
+    } else{
+        document.location.href = "http://localhost:8080/LoginCadastro.jsp";
+        console.log("era para ir")
+    }
+    console.log("oi")
 }
