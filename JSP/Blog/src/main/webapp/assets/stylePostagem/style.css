@@ -47,3 +47,18 @@
     height: 2px;
     border: 2px solid white;
 }
+
+.grid-comentarios{
+    grid-column-start: 2;
+    grid-column-end: 10;
+    grid-row-start: 9;
+    grid-row-end: 12;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    height: 100%;
+}
+
+.comentarios{
+    border: 2px solid black;
+}

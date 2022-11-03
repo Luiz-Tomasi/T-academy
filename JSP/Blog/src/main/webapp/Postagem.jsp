@@ -3,6 +3,8 @@
 <%@ page import="com.blog.dao.DaoUsuario" %>
 <%@ page import="com.blog.entidades.Postagem" %>
 <%@ page import="com.blog.dao.DaoPostagem" %>
+<%@ page import="com.blog.dao.DaoComentario" %>
+<%@ page import="com.blog.entidades.Comentario" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,6 +38,16 @@
                     %>
                     <hr class="hr">
 
+        </div>
+        <div class="grid-comentarios">
+            <%
+                String idPostagem2 = request.getParameter("id");
+                List<Comentario> lista = DaoComentario.consultarComentarios(Integer.parseInt(idPostagem2));
+                for(Comentario comentario : lista){
+                String ultimoComentario = comentario.getComentario();
+                    out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");
+                }
+            %>
         </div>
     </div>
 

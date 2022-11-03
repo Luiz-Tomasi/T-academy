@@ -30,7 +30,6 @@
         <div class="listaPostagens">
                 <tbody>
                     <%
-                        int contador = 0;
                         List<Postagem> lista = DaoPostagem.consultarUltimasPostagens();
                         for(Postagem postagem : lista){
                                 String textoLimitado = postagem.getTexto();
