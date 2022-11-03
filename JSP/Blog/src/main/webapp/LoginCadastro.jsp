@@ -59,6 +59,7 @@
             if(emailAtual.equals(usuarioAtual.getEmail()) && senhaAtual.equals(usuarioAtual.getSenha())){
                         out.write("<script>sessionStorage.setItem('email', '"+emailAtual+"')</script>");
                         out.write("<script>sessionStorage.setItem('senha', '"+senhaAtual+"')</script>");
+                        out.write("<script>sessionStorage.setItem('Moderador', '"+usuarioAtual.getModerador()+"')</script>");
                         out.write("<script> trocarPag() </script>");
             }
         }

@@ -76,4 +76,27 @@ public class DaoComentario {
         return lista;
     }
 
+    public  static List<Comentario> consultarComentarioPendente(){
+        List<Comentario> lista = new ArrayList<Comentario>();
+        Connection con = Conexao.conectar();
+        if(con != null) {
+            try {
+                PreparedStatement stm = con.prepareStatement("select * from comentario where verificado = 0;");
+                ResultSet rs = stm.executeQuery();
+                while (rs.next()) {
+                    Comentario c = new Comentario();
+                    c.setIdComentario(rs.getInt("idComentario"));
+                    c.setIdPostagem(rs.getInt("idPostagem"));
+                    c.setComentario(rs.getString("comentario"));
+                    c.setVerificado(rs.getInt("verificado"));
+                    c.setIdUsuario(rs.getInt("idUsuario"));
+                    lista.add(c);
+                }
+            } catch (SQLException e) {
+                return lista;
+            }
+        }
+        return lista;
+    }
+
 }
