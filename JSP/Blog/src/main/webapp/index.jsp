@@ -14,10 +14,7 @@
 
     <!-- Toastify-js dependences -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <!-- Bootstrap dependences -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <!-- CSS import -->
+    <!-- CSS import -->
     <link rel="stylesheet" href="assets/style.css">
      <!-- Js import -->
     <script src="assets/index.js"></script>
@@ -31,29 +28,23 @@
         </div>
 
         <div class="listaPostagens">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Texto</th>
-                        <th>IdUsuario</th>
-                        <th>Editar</th>
-                    </tr>
-                </thead>
                 <tbody>
                     <%
-                        List<Postagem> lista = DaoPostagem.consultarPostagens();
+                        int contador = 0;
+                        List<Postagem> lista = DaoPostagem.consultarUltimasPostagens();
                         for(Postagem postagem : lista){
-                            out.write("<tr>");
-                            out.write("<td>"+postagem.getIdPostagem()+"</td>");
-                            out.write("<td>"+postagem.getTexto()+"</td>");
-                            out.write("<td>"+postagem.getIdUsuario()+"</td>");
-                            out.write("<td><a class='me-2' href='Postagem.jsp?id="+postagem.getIdPostagem()+"'>Editar</a></td>");
-                            out.write("</tr>");
+                                String textoLimitado = postagem.getTexto();
+                                textoLimitado = textoLimitado.substring(0,16);
+                                out.write("<div class='card'>");
+                                out.write("<tr>");
+                                out.write("<td>"+"<h1>"+postagem.getTitulo()+"</h1>"+"</td>");
+                                out.write("<td><p>"+textoLimitado+"</p></td>");
+                                out.write("<td><a class='me-2' href='Postagem.jsp?id="+postagem.getIdPostagem()+"'>Abrir</a></td>");
+                                out.write("</tr>");
+                                out.write("</div>");
                         }
                     %>
                 </tbody>
-            </table>
         </div>
     </div>
 

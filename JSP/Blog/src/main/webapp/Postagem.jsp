@@ -27,27 +27,15 @@
         </div>
 
         <div class="grid-postagem">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Texto</th>
-                        <th>IdUsuario</th>
-                    </tr>
-                </thead>
-                <tbody>
                     <%
                         String idPostagem = request.getParameter("id");
                         Postagem postagem = DaoPostagem.consultarPorId(Integer.parseInt(idPostagem));
-                        out.write("<tr>");
-                        out.write("<td>"+postagem.getIdPostagem()+"</td>");
-                        out.write("<td class='overflow'><p>"+postagem.getTexto()+"</p></td>");
-                        out.write("<td>"+postagem.getIdUsuario()+"</td>");
-                        out.write("</tr>");
+
+                        out.write("<h1>"+postagem.getTitulo()+"</h1>");
+                        out.write("<div class='containerP'><p>"+postagem.getTexto()+"</p></div>");
                     %>
-                </tbody>
-            </table>
-            
+                    <hr class="hr">
+
         </div>
     </div>
 

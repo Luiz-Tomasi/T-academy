@@ -7,7 +7,7 @@
 
 .container{
     display: grid;
-    grid-template-columns: repeat(12, 10%);
+    grid-template-columns: repeat(10, 10%);
     grid-template-rows: repeat(10, 10vh);
     margin: 0;
 }
@@ -24,15 +24,23 @@
 }
 
 .listaPostagens{
-    grid-column-start: 1;
-    grid-column-end: 12;
+    grid-column-start: 5;
+    grid-column-end: 10;
     grid-row-start: 2;
-    grid-row-end: 11;
-    background-color: aqua;
+    grid-row-end: 10;
     width: 100%;
     overflow: scroll;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+    text-align: center;
+}
+
+.card{
+    margin-top: 5px;
+    width: 360px;
+    height: 12vh;
+    border-radius: 8px;
+    background-color: orange;
+}
+
+.card p, .card a{
+    padding-top: 3px;
 }
