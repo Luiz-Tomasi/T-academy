@@ -99,4 +99,36 @@ public class DaoComentario {
         return lista;
     }
 
+    public static String aceitarComentario(int id){
+        Connection con = Conexao.conectar();
+        String sql = "update comentario set verificado = '1' where idComentario = ?;";
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setInt(1,id);
+                stm.execute();
+            } catch (SQLException e) {
+                return "Deu erro";
+            }
+            return "Executado";
+        }
+        return "Finalizado";
+    }
+
+    public static String deletaComentario(int id){
+        Connection con = Conexao.conectar();
+        String sql = "delete from comentario where idComentario = ?;";
+        if(con != null){
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setInt(1,id);
+                stm.execute();
+            } catch (SQLException e) {
+                return "Deu erro";
+            }
+            return "Executado";
+        }
+        return "Finalizado";
+    }
+
 }

@@ -31,10 +31,14 @@
 
         <div class="listaPostagens">
                 <%
-                         List<Comentario> lista = DaoComentario.consultarComentarioPendente();
-                         for(Comentario comentario : lista){
-                         String ultimoComentario = comentario.getComentario();
-                         out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");
+                        List<Comentario> lista = DaoComentario.consultarComentarioPendente();
+                        for(Comentario comentario : lista){
+                        out.write("<div class='card'>");
+
+                        out.write("<span><a href='AceitarComentarioURL.jsp?id="+comentario.getIdComentario()+"'>Aceitar</a></span>");
+                        out.write("<p class='comentarios'>"+comentario.getComentario()+"</p>");
+                        out.write("<span><a href='DeletarComentarioURL.jsp?id="+comentario.getIdComentario()+"'>Remover</a></span>");
+                        out.write("</div>");
                      }
                 %>
         </div>
